@@ -1,8 +1,13 @@
 import React from 'react'
+import { use } from 'react';
 import { useState } from 'react'
 
+
 const Calculator = () => {
-  const [bmi, setBmi] = useState
+  const [weight, setWeight] = useState("");
+  const [height, setHeight] = useState("");
+  const [bmi, setBmi] = useState("")
+
   return (
     <div className='min-h-screen bg-[#090C1D] flex justify-center items-center'>
       <div 
@@ -16,17 +21,17 @@ const Calculator = () => {
         <div className='bg-black/20 w-100 h-20 flex items-center 
                         
                         font-bold font-mono justify-center text-4xl tracking-tighter text-slate-800/80'>
-            10
+            {weight}
         </div>
 
         {/*inputs */}
-        <div className='flex flex-col gap-3 pt-2 items-start justify-start w-[280px]'>
-            <input type='number' placeholder='Weight' 
+        <div className='flex flex-col gap-3 pt-2 items-start justify-start w-70'>
+            <input type='number' placeholder='Weight' onChange={(e)=>{setWeight(e.target.value)}}
                 className='w-full bg-white/10 border border-white/10 text-white rounded-md placeholder:text-[#64748B]
                 focus:outline-none focus:ring-2 focus:ring-fuchsia-500/40 text-center px-4 py-2'
             />
 
-            <input type='number' placeholder='Height' 
+            <input type='number' placeholder='Height' onChange={(e)=>{setHeight(e.target.value)}}
                 className='w-full bg-white/10 border border-white/10 text-white rounded-md placeholder:text-[#64748B]
                 focus:outline-none focus:ring-2 focus:ring-fuchsia-500/40 text-center px-4 py-2'
             />
