@@ -2,11 +2,16 @@ import React from 'react'
 import { use } from 'react';
 import { useState } from 'react'
 
+function calculateBmi(height, weight){
+    let bmi = weight / ((height/100)*(height/100));
+    return bmi.toFixed(2);
+}
+
 
 const Calculator = () => {
   const [weight, setWeight] = useState("");
   const [height, setHeight] = useState("");
-  const [bmi, setBmi] = useState("")
+  const [bmi, setBmi] = useState(0);
 
   return (
     <div className='min-h-screen bg-[#090C1D] flex justify-center items-center'>
@@ -20,8 +25,8 @@ const Calculator = () => {
         {/*display*/}
         <div className='bg-black/20 w-100 h-20 flex items-center 
                         
-                        font-bold font-mono justify-center text-4xl tracking-tighter text-slate-800/80'>
-            {weight}
+                        font-bold font-mono justify-center text-4xl tracking-tighter text-fuchsia-400'>
+            {bmi}
         </div>
 
         {/*inputs */}
@@ -41,7 +46,9 @@ const Calculator = () => {
 
         {/*buttons */}
         <div className='flex items-end justify-end gap-3'>
-            <button className='w-22 h-9 bg-violet-800 border hover:bg-violet-950 border-white/10 text-white font-semibold tracking-wide text-[16px]  rounded-md transition-all'>
+            <button
+                onClick={()=>{setBmi(calculateBmi(height, weight))}} 
+                className='w-22 h-9 bg-violet-800 border hover:bg-violet-950 border-white/10 text-white font-semibold tracking-wide text-[16px]  rounded-md transition-all'>
                 Calculate
             </button>
 
