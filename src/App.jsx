@@ -6,7 +6,7 @@ import Calculator from './Calculator/page'
 function App() {
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/BMI-Calculator">
       <Routes>
         <Route path="/" element={<Calculator />} />
       </Routes>
