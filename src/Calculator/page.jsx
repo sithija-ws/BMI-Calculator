@@ -1,6 +1,8 @@
 import React from 'react'
+import { useState } from 'react'
 
 const Calculator = () => {
+  const [bmi, setBmi] = useState
   return (
     <div className='min-h-screen bg-[#090C1D] flex justify-center items-center'>
       <div 
@@ -32,7 +34,17 @@ const Calculator = () => {
 
         </div>
 
-        
+        {/*buttons */}
+        <div className='flex items-end justify-end gap-3'>
+            <button className='w-22 h-9 bg-violet-800 border hover:bg-violet-950 border-white/10 text-white font-semibold tracking-wide text-[16px]  rounded-md transition-all'>
+                Calculate
+            </button>
+
+            <button
+              className='w-22 h-9 bg-white/5 hover:bg-red-500/10 border border-red-500/50 rounded-md text-red-400 font-semibold tracking-wide text-[17px]'>
+                Reset
+            </button>
+        </div>
         
         
       </div>
